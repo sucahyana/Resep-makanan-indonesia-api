@@ -5,7 +5,7 @@ namespace App\Traits;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-trait Uuids
+trait UuidsTrait
 {
 	protected static function boot()
 	{

@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Traits\Uuids;
+use App\Traits\UuidsTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Step extends Model
 {
-	use Uuids;
+	use UuidsTrait;
 	use HasFactory;
 
 	protected $fillable = [
