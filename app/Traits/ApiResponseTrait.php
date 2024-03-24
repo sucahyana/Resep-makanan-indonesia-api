@@ -12,7 +12,7 @@ trait ApiResponseTrait
      * @param  array  $data
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function success(string $message, int $code = 200, array $data = []): Response
+    protected function success(string $message, int $code = 200, array $data = [])  
     {
         return response()->json([
             'success' => true,
@@ -21,13 +21,15 @@ trait ApiResponseTrait
         ], $code);
     }
 
-    /**
-     * @param  string  $message
-     * @param  int  $code
-     * @param  array  $errors
-     * @return \Illuminate\Http\JsonResponse
+       /**
+     * Returns an error response with a message and optional errors.
+     *
+     * @param string $message Error message
+     * @param int $code HTTP status code (default: 400)
+     * @param array $errors Array of specific errors (optional)
+     * @return Response JSON response
      */
-    protected function error(string $message, int $code = 400, array $errors = []): Response
+    protected function error(string $message, int $code = 400, $errors = [])
     {
         return response()->json([
             'success' => false,
@@ -35,6 +37,7 @@ trait ApiResponseTrait
             'errors' => $errors,
         ], $code);
     }
+
 
     /**
      * @param  string  $message
@@ -114,8 +117,8 @@ trait ApiResponseTrait
      * @param  int  $code
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function internalServerError(string $message = 'Internal server error', int $code = 500): Response
+    protected function internalServerError(string $message = 'Internal server error', int $code = 500, $error=[])
     {
-        return $this->error($message, $code);
+        return $this->error($message, $code,$error);
     }
 }

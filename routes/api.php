@@ -11,7 +11,7 @@ Route::get('/user', function (Request $request) {
 	return $request->user() ? $request->user() : response()->json(['message' => 'Unauthorized'], 401);
 })->middleware('auth:sanctum');
 
-Route::prefix('api/v1')->group(function () {
+Route::prefix('/v1')->group(function () {
 
 	Route::prefix('/auth')->group(function () {
 		Route::post('/register', [AuthController::class, 'register']);
